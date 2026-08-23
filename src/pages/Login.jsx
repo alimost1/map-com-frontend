@@ -50,7 +50,15 @@ export function Login() {
       const from = location.state?.from?.pathname || '/';
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.message || 'Identifiants invalides');
+      // Backend sends { error: '...' } — older proxies may send { message }
+      const serverMessage = err.response?.data?.error || err.response?.data?.message;
+      if (serverMessage) {
+        setError(serverMessage === 'Invalid credentials' ? 'Identifiants invalides' : serverMessage);
+      } else if (err.response) {
+        setError(`Erreur serveur (${err.response.status}). Réessayez.`);
+      } else {
+        setError('Serveur injoignable. Vérifiez votre connexion ou réessayez plus tard.');
+      }
     } finally {
       setLoading(false);
     }
