@@ -5,6 +5,7 @@ import { Mail, Lock, Eye, EyeOff, AlertCircle, Loader2, Send, Shield } from 'luc
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { api, authApi } from '../lib/api';
 
 export function Login() {
   const navigate = useNavigate();
