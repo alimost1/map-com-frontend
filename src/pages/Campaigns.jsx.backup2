@@ -31,8 +31,6 @@ export function Campaigns() {
     message: '',
     status: 'draft',
     scheduledAt: '',
-    channel: 'evolution',
-    instanceName: 'promo',
   });
   const [saving, setSaving] = useState(false);
 
@@ -64,8 +62,6 @@ export function Campaigns() {
         message: '',
         status: 'draft',
         scheduledAt: '',
-        channel: 'evolution',
-        instanceName: 'promo',
       });
       loadCampaigns();
     } catch (err) {
@@ -241,8 +237,6 @@ export function Campaigns() {
                           message: row.message,
                           status: row.status,
                           scheduledAt: row.scheduledAt || '',
-                          channel: row.channel || 'evolution',
-                          instanceName: row.instanceName || 'promo',
                         });
                         setShowEditModal(true);
                       }}
@@ -288,8 +282,6 @@ export function Campaigns() {
               message: '',
               status: 'draft',
               scheduledAt: '',
-              channel: 'evolution',
-              instanceName: 'promo',
             });
           }}
           title="Create New Campaign"
@@ -335,8 +327,6 @@ export function Campaigns() {
                   message: '',
                   status: 'draft',
                   scheduledAt: '',
-                  channel: 'evolution',
-                  instanceName: 'promo',
                 });
               }}>
                 Cancel
@@ -354,14 +344,6 @@ export function Campaigns() {
           onClose={() => {
             setShowEditModal(false);
             setEditingCampaign(null);
-            setFormData({
-              name: '',
-              message: '',
-              status: 'draft',
-              scheduledAt: '',
-              channel: 'evolution',
-              instanceName: 'promo',
-            });
           }}
           title="Edit Campaign"
           size="lg"
@@ -402,14 +384,6 @@ export function Campaigns() {
               <Button variant="secondary" onClick={() => {
                 setShowEditModal(false);
                 setEditingCampaign(null);
-                setFormData({
-                  name: '',
-                  message: '',
-                  status: 'draft',
-                  scheduledAt: '',
-                  channel: 'evolution',
-                  instanceName: 'promo',
-                });
               }}>
                 Cancel
               </Button>
